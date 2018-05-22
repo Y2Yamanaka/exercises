@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>BMI計算</title>
+	<script>
+		function calcBMI() {
+			// 変数の定義
+			var h = document.getElementById("i0").value;
+			var w = document.getElementById("i1").value;
+			var BMI = w / (h ** 2);
+
+　　　// 条件の設定
+			if(BMI < 18.5) {
+				document.getElementById("result").textContent = "痩せすぎ"
+			}
+			else if(BMI >= 25) {
+				document.getElementById("result").textContent = "太りすぎ"
+			}
+			else {
+				document.getElementById("result").textContent = "普通"
+			}
+		}
+	</script>	
+</head>
+
+<body>
+	<h2>BMI計算機</h2>
+	身長(m) : <input id="i0" value="" />
+	体重(kg) : <input id="i1" value="" />
+	<button onclick="calcBMI()">check</button>
+	<p id="result"></p>
+</body>	
+</html>
