@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<script>
+        //　未完成のコード
+		var ctx, h, m, s;
+
+		function init() {
+			var canvas = document.getElementById("canvas");
+			ctx = canvas.getContext("2d");
+			setInterval(tick, 1000);
+		}
+
+		function tick() {
+			// 時、分、秒を求める
+            var now = new Date();
+            h = now.getHours() % 12;
+            m = now.getMinutes();
+            s = now.getSeconds();
+            paint();
+        }
+
+        function drawHand() {
+            ctx.save();
+            ctx.translate(150, 150);
+            ctx.rotate(rotation);
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.lineTo(0, );
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        function paint() {
+            ctx.clearRect(0, 0, 300, 300);
+
+            ctx.save();
+            ctx.translate(150, 150);
+            ctx.strokeStyle = "black";
+            var pitch = Math.PI * 2 / 60;
+            for (var i = 0 ; i < 60 ; i++) {
+                ctx.beginPath();
+                ctx.moveTo(0, -120);
+                ctx.lineTo(0, -140);
+                ctx.stroke();
+                ctx.rotate(pitch);
+            }
+                ctx.restore();
+
+                //  長針、短針、秒針の角度を求める
+                var radH = (Math.PI * 2) / 12 * h + (Math.PI * 2) / 12 * (m / 60);
+                var radM = (Math.PI * 2) / 60 * m;
+                var radS = (Math.PI * 2) / 60 * s;
+        }
+	</script>	
+</head>
+
+<body onload="init()">
+    <canvas width="300" height="300" id="clock"></canvas>
+    <p id="time"></p>
+</body>	
+</html>
