@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>2次元連立方程式</title>
+	<script>
+		function calc() {
+			var a = document.getElementById("a").value;
+			var b = document.getElementById("b").value;
+			var c = document.getElementById("c").value;
+			var d = document.getElementById("d").value;
+			var A = document.getElementById("A").value;
+			var B = document.getElementById("B").value;
+			var detA = a * d - b * c;
+			var detA1 = A * d - b * B;
+			var detA2 = a * B - A * c;
+			document.getElementById("result1").textContent = detA1 / detA;
+			document.getElementById("result2").textContent = detA2 / detA;
+		}
+
+	</script>	
+</head>
+
+<body>
+	<h2>2次元連立方程式を解く(未知数はx, yとする)</h2>
+	1つ目の式を入力してください：<input id = "a" value = "">x + <input id = "b" value= "">y = <input id = "A" value= "" /><br>
+	2つ目の式を入力してください：<input id = "c" value = "">x + <input id = "d" value= "">y = <input id = "B" value= "" /><br>
+	<button onclick = "calc();">計算する</button>
+	<p>x = <span id = "result1"></span></p>
+    <p>y = <span id = "result2"></span></p>	
+</body>	
+</html>
